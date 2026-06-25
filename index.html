@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Price Predictor</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static',filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Welcome to Car Price Predictor</h1>
+
+<form action="/predict" method="POST">
+
+<label>Select Company</label>
+
+<select name="company">
+{% for company in companies %}
+<option value="{{company}}">{{company}}</option>
+{% endfor %}
+</select>
+
+<label>Car Model</label>
+
+<input type="text" name="name"
+placeholder="Enter Model Name">
+
+<label>Year</label>
+
+<select name="year">
+{% for year in years %}
+<option>{{year}}</option>
+{% endfor %}
+</select>
+
+<label>Fuel Type</label>
+
+<select name="fuel">
+{% for fuel in fuels %}
+<option>{{fuel}}</option>
+{% endfor %}
+</select>
+
+<label>Kilometers Driven</label>
+
+<input type="number" name="kms">
+
+<button type="submit">
+Predict Price
+</button>
+
+</form>
+
+</div>
+
+</body>
+</html>
